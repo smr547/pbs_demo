@@ -25,7 +25,7 @@ qsub one_node.pbs.sh
 Output files will come to the current directory. A typical PBS output file will look like 
 
 ```
-Running trials 1000000000 on each of 16 core(s)
+Running 1000000000 trials on each of 16 core(s)
 50265525168 16000000000 3.141595323
 
 ======================================================================================
