@@ -22,4 +22,22 @@ Submit the job directly from this directory:
 qsub one_node.pbs.sh
 ```
 
-Output files will come to the current directory.
+Output files will come to the current directory. A typical PBS output file will look like 
+
+```
+Running 1000000000 on each of 16 core(s)
+50265525168 16000000000 3.141595323
+
+======================================================================================
+                  Resource Usage on 2017-08-21 16:04:55:
+   Job Id:             7920218.r-man2
+   Project:            u46
+   Exit Status:        0
+   Service Units:      5.09
+   NCPUs Requested:    16                     NCPUs Used: 16
+                                           CPU Time Used: 04:55:46
+   Memory Requested:   200.0MB               Memory Used: 71.18MB
+   Walltime requested: 00:25:00            Walltime Used: 00:19:06
+   JobFS requested:    10.0MB                 JobFS used: 541.0B
+======================================================================================
+```
