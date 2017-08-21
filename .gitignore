@@ -1,0 +1,3 @@
+# pbs output files
+*.pbs.sh.o*
+*.pbs.sh.e*
