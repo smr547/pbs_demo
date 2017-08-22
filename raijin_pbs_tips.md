@@ -67,3 +67,6 @@ are billed at three times the normal job rate. So use with care and close the se
 ## Other resources
 
 1. [Stack overflow article](https://stackoverflow.com/questions/5453427/does-a-pbs-batch-system-move-multiple-serial-jobs-across-nodes) about invoking processes across multi-node PBS jobs.
+1. [Raijin Essentials (PDF)](http://nci.org.au/wp-content/uploads/2015/06/Raijin-Essentials.pdf)
+1. [Job submission and scheduling FAQs](https://opus.nci.org.au/display/Help/Job+Submission+and+Scheduling)
+1. [Submitting an array of jobs across nodes](https://opus.nci.org.au/display/Help/How+do+I+submit+array+jobs+on+raijin)
