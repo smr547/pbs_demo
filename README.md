@@ -28,7 +28,8 @@ Here are some examples of using PBS to run the [demo program](./compute_py) in v
 1. [Simple single CPU batch job](./one_cpu)
 1. Multiple CPUs, single node
 1. Whole node (16 CPUs)
-1. [Multiple nodes](./multi_node) - simple internode communications
+1. [Multiple nodes](./multi_node) - simple internode communications via ``/short``
+1. [Multiple nodes using MPI](./multi_node_mpi) - uses MPI to orchestrate cluster execution
 
 ## Monitoring jobs
 
