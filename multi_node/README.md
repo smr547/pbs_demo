@@ -5,7 +5,7 @@ standard Raijin node (comprising 32 CPUs).
 
 ## Job design
 
-The strategy is to run 32 independent processes in parallel across the three nodes and quickly reduce their output. The script:
+The strategy is to run 32 independent processes in parallel across the two nodes and quickly reduce their output. The script:
 
 1. Computes and reports the number of cores available
 1. Launches one process per core using the ``pbsdsh`` command, these processes run in parallel
