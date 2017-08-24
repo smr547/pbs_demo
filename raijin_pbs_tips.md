@@ -1,8 +1,30 @@
 # Tips for designing Raijin jobs
 
-## Watch you process memory size
+Here are some tips and guidelines in no particular order. They are intended to help the new starter avoid some pitfalls when
+working with PBS on Raijin.
+
+## Terms
+I've tried to be accurate in my use of language -- Please refer to my [glossary of terms](./glossary.md). Now for the tips.
+
+## Big jobs are better than small jobs
+We often deal with very large, continental-scale datasets, so big workflows are a reality of working at GA. The good news is
+our data is spinning on a super computer. So first tip...
+
+The Raijin PBS implimentation limits the number of jobs that can be subitted to a single queue from a single project
+-- that limit is 200.
+When designing a workflow try to break it up into large jobs. i.e. Jobs that process a lot of data (and that may require many nodes).
+
+A workflow involving many small jobs is bad because:
+
+* if the 200 job queue limit is exceeded, further ``qsub`` commands will fail
+* if the 200 job queue limit is exceeded, all members of the project group will be impacted -- you will be unpopular
+* there is an overhead in job setup and teardown
+
+Workload homogenity is your goal (see below).
+
+## Watch your process memory size
 A standard Raijin node is equipped with 16 cores and 32 GB of RAM. It is also a hard reality that PBS job monitor
-will kill any job that asks for more memory than that available to the task.  
+will kill any job that asks for more memory than that available to the job *on any one node*.  
 
 This leads to the following rules of thumb
 
@@ -14,10 +36,33 @@ More generally
 * measure the maximum memory working set size of your process (lets call it PWSS_GB)
 * maximum number of processes per node ``MAX_PPN = min(floor(32/PWSS_GB), 16)``
 
-These rules assument that all the processes running mostly identical in terms of their anticipated memory footprint.
+These rules assume that all a job's processes are mostly identical in terms of their anticipated memory footprint.
 
-## Choose the number of CPUs
+## Choose the number of CPUs carefully (a)
 
+Job resource requirements are declared using ``#PBS...`` directives at the top of the job script (these may also be overriden
+by ``qsub`` command line options. The most important resource parameter is ``NCPUS``
+
+* Get to know your processes so you can anticipate the likely runtime given a typical workload
+* beware that there are maximum wallclock times for jobs. These vary depending on the queue. 
+* A typical limit is 48 hours on the ``normal`` queue. Jobs exceeding this limit will be killed, so
+
+Specify a sufficently large ``NCPUS`` value to allow your workload to be processed within the limits of the queue.
+
+## Choose the number of CPUs carefully (b)
+Very small jobs running on one node may specify ``NCPUS`` from 1 to 16 inclusive. If your job requires more than 16 CPUs 
+you should allocate two or more ''whole nodes''. That is, your value for ``NCPUS`` should be a multiple of 16. 
+
+## Keep other resources consistent with NCPUS
+PBS will muster sufficient nodes into a cluster to satisfy the maximum resource requirements of the Job. You may need only 4 CPUs
+but if you ask for 32GB of memory you will be given exclusive use of one node with 16 available CPUs. 
+Natrually, if you are only using 4 CPUs, then 12 CPUs will remain idle (and your CPU utilisation will be noticeably bad).
+
+Here are some rules of thumb for using standard nodes on Raijin
+
+* Maximum Memory requirement in GB ``mem = 31 * NCPUS / 32``
+* Maximum JOBFS requirement in GB ``jobfs = 200 * NCPUS / 32``
+* Walltime - allow enough time for your job to finish with a safety margin. Stay within queue limits
 
 ## Keep your workload homogenous
 
@@ -64,7 +109,13 @@ This emulates exactly what ``PBS`` does when it runs your job.
 You are going to get the best results by submitting your job to the ``express`` queue. But beware: ``express`` queue jobs
 are billed at three times the normal job rate. So use with care and close the session (ctrl-D) as soon as possible.
 
-## Other resources
+## Measure memory requirements with augmented loggin
+Here is some sample code that allows memory usage information to be appended to each log message generate by a Python program. 
+This can be very helpful when trying to assess the real memory requirements of your pocess. 
+
+TODO -- find the code!
+
+## Other reading
 
 1. [Stack overflow article](https://stackoverflow.com/questions/5453427/does-a-pbs-batch-system-move-multiple-serial-jobs-across-nodes) about invoking processes across multi-node PBS jobs.
 1. [Raijin Essentials (PDF)](http://nci.org.au/wp-content/uploads/2015/06/Raijin-Essentials.pdf)
