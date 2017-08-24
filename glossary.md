@@ -11,6 +11,7 @@ a data processing product
 * ``Node`` - A single computer in the Raijin super-computer -- most commonly consisting of 
 16 CPU cores, 32GB RAM, 200GB spinning disk and a connection to the 56Gbps Infiniband network
 * ``Cluster`` - a group of nodes working together to process one job
+* ``Head node`` - the first node in the cluster -- your job script will start running on this (and only this) node
 * ``Project`` - a billing entity (maps directly to a Unix group on Raijin)
 * ``Process`` - a Unix process running on one node
 * ``Queue`` - PBS jobs are submitted to a queue and they wait their until released for execution by the PBS scheduler. See the 
@@ -19,6 +20,7 @@ PBS documentation for more details on ``queues``
 * ``NCPUS`` - A PBS resource specification (and environment variable) describing the total number of cores allocated to a Job
 * ``jobfs`` - Job file system is storage space allocated to a job. Environment variable ``PBS_JOBFS`` will point to the top
 level directory. The storage space is distributed. It resides on the spinning disk aboard each node allocated to the job
+* ``Job script`` -- The script (or shell command) being executed by a job. This is typically a ``bash script``
 
 ## Anti-terms
 

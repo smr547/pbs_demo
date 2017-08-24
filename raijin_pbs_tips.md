@@ -1,15 +1,14 @@
 # Tips for designing Raijin jobs
 
-Here are some tips and guidelines in no particular order. They are intended to help the new starter avoid some pitfalls when
+We often deal with very large, continental-scale datasets. So big workflows are a reality of working at GA. The good news is
+our data is spinning on a super computer.  Here are some tips and guidelines in no particular order. 
+They are intended to help the new starter avoid some pitfalls when
 working with PBS on Raijin.
 
 ## Terms
 I've tried to be accurate in my use of language -- Please refer to my [glossary of terms](./glossary.md). Now for the tips.
 
 ## Big jobs are better than small jobs
-We often deal with very large, continental-scale datasets, so big workflows are a reality of working at GA. The good news is
-our data is spinning on a super computer. So first tip...
-
 The Raijin PBS implimentation limits the number of jobs that can be subitted to a single queue from a single project
 -- that limit is 200.
 When designing a workflow try to break it up into large jobs. i.e. Jobs that process a lot of data (and that may require many nodes).
@@ -21,6 +20,11 @@ A workflow involving many small jobs is bad because:
 * there is an overhead in job setup and teardown
 
 Workload homogenity is your goal (see below).
+
+## Job script only runs on head node
+When PBS has assembled the cluster of nodes to run your job it will launch your job script as a single process on the head node.
+How your job uses the resources available to it is entirely guided by your job scripts. Since your aim is to utilise all cores and 
+nodes availabe to you adopt one or more [strategies for distributing workload](workload_distribution_stategies.md).
 
 ## Watch your process memory size
 A standard Raijin node is equipped with 16 cores and 32 GB of RAM. It is also a hard reality that PBS job monitor
