@@ -23,8 +23,8 @@ Workload homogenity is your goal (see below).
 
 ## Job script only runs on head node
 When PBS has assembled the cluster of nodes to run your job it will launch your job script as a single process on the head node.
-How your job uses the resources available to it is entirely guided by your job scripts. Since your aim is to utilise all cores and 
-nodes availabe to you adopt one or more [strategies for distributing workload](workload_distribution_stategies.md).
+How your job uses the resources available to it is entirely guided by your job script. Since your aim is to utilise all cores and 
+nodes availabe to you adopt one or more [strategies for distributing workload](workload_distribution_stategies.md) across those nodes.
 
 ## Watch your process memory size
 A standard Raijin node is equipped with 16 cores and 32 GB of RAM. It is also a hard reality that PBS job monitor
