@@ -6,7 +6,7 @@ They are intended to help the new starter avoid some pitfalls when
 working with PBS on Raijin.
 
 ## Terms
-I've tried to be accurate in my use of language -- Please refer to my [glossary of terms](./glossary.md). Now for the tips.
+I've tried to be consistent in my use of language -- Please refer to the [glossary of terms](./glossary.md). Now for the tips.
 
 ## Big jobs are better than small jobs
 The Raijin PBS implimentation limits the number of jobs that can be subitted to a single queue from a single project
