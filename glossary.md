@@ -25,8 +25,8 @@ level directory. The storage space is distributed. It resides on the spinning di
 ## Anti-terms
 
 PBS is very configurable and each deployment introduces terms that may be unique to a particular environment. The downside is
-that there is PBS documentation on the web which, while accurate for another deployment, can be confusing and misleading for Rainin 
-suers. Some terms to watch out for:
+that there is PBS documentation on the web which, while accurate for another deployment, can be confusing and misleading for Raijin 
+users. Some terms to watch out for:
 
 * ``VNode`` -- this is a nebulous term that has a very vague definition in the PBS manual. Until somebody can give a coherent 
 definition of what a VNode means on Raijin it is best to avoid the term. 
