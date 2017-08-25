@@ -74,9 +74,9 @@ In discussing resource here I''m referring to CPU, Memory and walltime. Some imp
 
 * The resources allocated to a PBS job is fixed at Job submission time. 
 * An executing PBS job is *inflexible*
-** more resources cannot be added (even if needed)
-** a job demanding more than the allocated resources will be killed -- processed data may be lost
-** with the exception of walltime, unused resources cannot be give up as *not required*
+  * more resources cannot be added (even if needed)
+  * a job demanding more than the allocated resources will be killed -- processed data may be lost
+  * with the exception of walltime, unused resources cannot be give up as *not required*
 
 For big tasks requiring many nodes this inflexibility may have a profound impact on how you design your workflow. For example, in
 a big Map/Reduce workflow you might use a ``MapJob`` followed by a ``ReduceJob``. The ``MapJob`` might require 
