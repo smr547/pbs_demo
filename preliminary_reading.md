@@ -9,7 +9,7 @@ NCI provide some excellent online documentation that covers the use of PBS on Ra
 This material is necessary reading for any new starter at GA. The notes I've prepared here assume that the reader is
 familiar with these documents.
 
-## ``Man`` pages
+## ``man`` pages
 Check out ``man`` pages for the following PBS commands:
 
 * ``qsub`` -- submit a job
@@ -40,5 +40,6 @@ man qselection
 
 ## Web reading
 There is a wealth of material available on the web if you Google "PBS". Beware that the Raijin implementation of
-PBS may be a little different from other installions. Refer to ''Anti terms'' in the [glossary of terms](./glossary.md) 
+PBS may be a little different from other installions. While reading material not authored at 
+NCI or GA, beware of [Anti terms](./glossary_anti_terms.md) and avoid confusion.
 

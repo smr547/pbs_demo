@@ -12,8 +12,8 @@ using a monte carlo simulation (possibly running on multiple CPUs across multipl
 Here are some examples of using PBS to run the [demo program](./compute_py) in various configurations on Raijin using PBS
 
 1. [Simple single CPU batch job](./one_cpu)
-1. Multiple CPUs, single node  -- TODO
-1. Whole node (16 CPUs) -- TODO
+1. Multiple CPUs, single node  -- TODO (really it's identical to the [Whole node (16 CPUs)](./one_node) example
+1. [Whole node (16 CPUs)](./one_node)
 1. [Multiple nodes](./multi_node) - simple internode communications via ``/short``
 1. [Multiple nodes using MPI](./multi_node_mpi) - uses MPI to orchestrate cluster execution
 
