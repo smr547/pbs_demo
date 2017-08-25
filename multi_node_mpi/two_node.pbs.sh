@@ -19,4 +19,4 @@ module load mpi4py/1.3.1
 TRIALS=10000000
 echo "Running $TRIALS on each of $PBS_NCPUS core(s)"
 
-mpiexec -n $PBS_NCPUS python ../compute_pi/compute_mpi.pi $TRIALS
+mpiexec -n $PBS_NCPUS python ../compute_pi/compute_mpi.py $TRIALS
