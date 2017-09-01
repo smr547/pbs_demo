@@ -9,7 +9,7 @@ working with PBS on Raijin.
 I've tried to be consistent in my use of language -- Please refer to the [glossary of terms](./glossary.md). Now for the tips.
 
 ## Big jobs are better than small jobs
-The Raijin PBS implimentation limits the number of jobs that can be subitted to a single queue from a single project
+The Raijin PBS implementation limits the number of jobs that can be submitted to a single queue from a single project
 -- that limit is 200.
 When designing a workflow try to break it up into large jobs. i.e. Jobs that process a lot of data (and that may require many nodes).
 
@@ -60,7 +60,7 @@ you should allocate two or more ''whole nodes''. That is, your value for ``NCPUS
 ## Keep other resources consistent with NCPUS
 PBS will muster sufficient nodes into a cluster to satisfy the maximum resource requirements of the Job. You may need only 4 CPUs
 but if you ask for 32GB of memory you will be given exclusive use of one node with 16 available CPUs. 
-Natrually, if you are only using 4 CPUs, then 12 CPUs will remain idle (and your CPU utilisation will be noticeably bad).
+Naturally, if you are only using 4 CPUs, then 12 CPUs will remain idle (and your CPU utilisation will be noticeably bad).
 
 Here are some rules of thumb for using standard nodes on Raijin
 
@@ -91,7 +91,7 @@ L.S.Lowe elegantly describes this issue in the last two paragraphs of [this arti
 
 ## Experiment with your jobs scripts
 
-Experiment with your job scripts to guage memory usage, run time, CPU utilisation and to find bugs. One great way to
+Experiment with your job scripts to gauge memory usage, run time, CPU utilisation and to find bugs. One great way to
 test the job script is to use an interactive batch session.
 
 ## Interactive batch session
@@ -113,7 +113,7 @@ This emulates exactly what ``PBS`` does when it runs your job.
 You are going to get the best results by submitting your job to the ``express`` queue. But beware: ``express`` queue jobs
 are billed at three times the normal job rate. So use with care and close the session (ctrl-D) as soon as possible.
 
-## Measure memory requirements with augmented loggin
+## Measure memory requirements with augmented logging
 Here is some sample code that allows memory usage information to be appended to each log message generate by a Python program. 
 This can be very helpful when trying to assess the real memory requirements of your pocess. 
 

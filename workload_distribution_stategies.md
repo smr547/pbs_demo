@@ -4,7 +4,7 @@ Your job script starts executing on the head node of the cluster of nodes alloca
 
 There are a number of different ways of using the cores available to you
 
-* loop and background  -- see the Simple single CPU batch job](./one_cpu) and [Whole node (16 CPUs)](./one_node) examples
+* loop and background  -- see the [Simple single CPU batch job](./one_cpu) and [Whole node (16 CPUs)](./one_node) examples
 * gnu parallel -- TODO
 * PBS distributed shell -- see [Multiple nodes](./multi_node)
 * MPI -- [Multiple nodes using MPI](./multi_node_mpi)
